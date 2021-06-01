@@ -1,0 +1,56 @@
+function setupUI()
+	local buttons = {fogButton()}
+	UI.setXmlTable({buttonDeck(buttons)})
+end
+
+function buttonDeck(children)
+	local PADDING = 5
+	local SPACING = 5
+	local BUTTON_WIDTH = 80
+
+	local numChildren = #children
+	local width = PADDING*2 + (numChildren-1)*SPACING + numChildren*BUTTON_WIDTH
+
+	return {
+		tag="HorizontalLayout",
+		attributes={
+			rectAlignment="LowerRight",
+			offsetXY="-85 10",
+
+			visibility="Black|Host",
+			height=60,
+			width=width,
+			color="rgba(0,0,0,0.7)",
+			childForceExpandWidth=false,
+
+			childAlignment="MiddleCenter",
+			spacing=PADDING,
+			padding=SPACING
+		},
+		children=children
+	}
+end
+
+function fogButton()
+	return deckButton("Fog", "tempOnClick")
+end
+
+function deckButton(text, onClick)
+	local onClick = onClick or ""
+	return {
+		tag="Button",
+		attributes={
+			flexibleWidth=1,
+			fontStyle="Bold",
+			resizeTextForBestFit=true,
+			resizeTextMinSize=14,
+			resizeTextMaxSize=24,
+			text=text,
+			onClick=onClick
+		}
+	}
+end
+
+function tempOnClick(player)
+	printf("I'm a button! I was clicked by %s, who is color %s", player.steam_name, player.color)
+end

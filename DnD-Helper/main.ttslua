@@ -1,0 +1,20 @@
+require("helpers")
+require("ui")
+
+MOD_NAME = "D&D Helper"
+
+
+function onLoad()
+	local startTime = os.time()
+	logf("Loading module %s", MOD_NAME)
+
+	setupUI()
+
+	local endTime = os.time()
+	logf("Loading complete! Enjoy. (%.0f ms)", (endTime - startTime) * 1000)
+end
+
+
+function onUpdate()
+
+end

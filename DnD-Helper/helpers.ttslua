@@ -1,0 +1,13 @@
+require("helpers")
+
+function printf(format, ...)
+	print(string.format(format, ...))
+end
+
+function logf(format, ...)
+	log(string.format(format, ...))
+end
+
+function printToGM(format, ...)
+	printToColor(string.format(format, ...), "Black", Color.Purple)
+end
