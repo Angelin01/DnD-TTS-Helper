@@ -1,5 +1,5 @@
 function setupUI()
-	local buttons = {fogButton()}
+	local buttons = {clearFogButton(), fogButton()}
 	UI.setXmlTable({buttonDeck(buttons)})
 end
 
@@ -33,6 +33,10 @@ end
 
 function fogButton()
 	return deckButton("Spawn Fog", "spawnFog")
+end
+
+function clearFogButton()
+	return deckButton("Clear Fog", "clearFog")
 end
 
 function deckButton(text, onClick)

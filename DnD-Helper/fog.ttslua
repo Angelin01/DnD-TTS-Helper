@@ -9,12 +9,16 @@ local STARING_X_POS = -44
 local FINISH_X_POS = -STARING_X_POS
 local TOTAL_X_SIZE = FINISH_X_POS - STARING_X_POS
 
+local FOG_TAG = "FogScriptSpawned"
+
 local COUNT_X = 12
 local COUNT_Z = 8
 
 
 function spawnFog()
 	log("Spawning Fog")
+	local existingFogs = getObjectsWithTag(FOG_TAG)
+
 	local xStep = TOTAL_X_SIZE / COUNT_X
 	local xScale = X_TOTAL_SCALE / COUNT_X
 
@@ -36,6 +40,13 @@ function spawnFog()
 		xPos = xPos + xStep
 		xToSpawn = xToSpawn -1
 	end
+
+	destroyObjects(existingFogs)
+end
+
+
+function clearFog()
+	destroyObjects(getObjectsWithTag(FOG_TAG))
 end
 
 
@@ -66,7 +77,9 @@ function spawnFogSquare(posX, posZ, scaleX, scaleZ)
 			FogHidePointers=false,
 			FogReserveHiding=false,
 			FogSeethrough=false,
-			FogAutoSpawned=true
-		}
+		},
+		callback_function = function(obj)
+			obj.addTag(FOG_TAG)
+		end
 	})
 end

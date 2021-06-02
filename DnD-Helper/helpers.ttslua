@@ -11,3 +11,9 @@ end
 function printToGM(format, ...)
 	printToColor(string.format(format, ...), "Black", Color.Purple)
 end
+
+function destroyObjects(objs)
+	for i = 1, #objs do
+		destroyObject(objs[i])
+	end
+end
