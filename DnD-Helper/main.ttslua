@@ -1,6 +1,5 @@
 require("helpers")
 require("ui")
-require("fog")
 
 MOD_NAME = "D&D Helper"
 

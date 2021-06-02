@@ -1,3 +1,5 @@
+require("fog")
+
 function setupUI()
 	local buttons = {clearFogButton(), fogButton()}
 	UI.setXmlTable({buttonDeck(buttons)})
@@ -18,7 +20,7 @@ function buttonDeck(children)
 			offsetXY="-85 10",
 
 			visibility="Black|Admin",
-			height=60,
+			height="5%",
 			width=width,
 			color="rgba(0,0,0,0.7)",
 			childForceExpandWidth=false,
@@ -46,6 +48,7 @@ function deckButton(text, onClick)
 		attributes={
 			flexibleWidth=1,
 			fontStyle="Bold",
+			minHeight=40,
 			resizeTextForBestFit=true,
 			resizeTextMinSize=14,
 			resizeTextMaxSize=24,

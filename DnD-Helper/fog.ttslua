@@ -1,3 +1,5 @@
+require("helpers")
+
 local Z_TOTAL_SCALE = 52
 local X_TOTAL_SCALE = 88
 
@@ -16,7 +18,6 @@ local COUNT_Z = 8
 
 
 function spawnFog()
-	log("Spawning Fog")
 	local existingFogs = getObjectsWithTag(FOG_TAG)
 
 	local xStep = TOTAL_X_SIZE / COUNT_X
