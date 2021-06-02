@@ -1,5 +1,6 @@
 require("helpers")
 require("ui")
+require("fog")
 
 MOD_NAME = "D&D Helper"
 
@@ -10,11 +11,12 @@ function onLoad()
 
 	setupUI()
 
+	debug()
+
 	local endTime = os.time()
 	logf("Loading complete! Enjoy. (%.0f ms)", (endTime - startTime) * 1000)
 end
 
-
-function onUpdate()
-
+function debug()
+	spawnFog()
 end

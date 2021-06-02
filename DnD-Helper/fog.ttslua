@@ -1,0 +1,72 @@
+local Z_TOTAL_SCALE = 52
+local X_TOTAL_SCALE = 88
+
+local STARING_Z_POS = -26
+local FINISH_Z_POS = -STARING_Z_POS
+local TOTAL_Z_SIZE = FINISH_Z_POS - STARING_Z_POS
+
+local STARING_X_POS = -44
+local FINISH_X_POS = -STARING_X_POS
+local TOTAL_X_SIZE = FINISH_X_POS - STARING_X_POS
+
+local COUNT_X = 12
+local COUNT_Z = 8
+
+
+function spawnFog()
+	log("Spawning Fog")
+	local xStep = TOTAL_X_SIZE / COUNT_X
+	local xScale = X_TOTAL_SCALE / COUNT_X
+
+	local zStep = TOTAL_Z_SIZE / COUNT_Z
+	local zScale = Z_TOTAL_SCALE / COUNT_Z
+
+	local xPos = STARING_X_POS + xStep/2
+	local xToSpawn = COUNT_X
+	while xToSpawn > 0 do
+		local zPos = STARING_Z_POS + zStep/2
+		local zToSpawn = COUNT_Z
+
+		while zToSpawn > 0 do
+			spawnFogSquare(xPos, zPos, xScale, zScale)
+			zPos = zPos + zStep
+			zToSpawn = zToSpawn - 1
+		end
+
+		xPos = xPos + xStep
+		xToSpawn = xToSpawn -1
+	end
+end
+
+
+function spawnFogSquare(posX, posZ, scaleX, scaleZ)
+	spawnObjectData({
+		data={
+			Name="FogOfWarTrigger",
+			Transform = {
+				posX = posX,
+				posY = 1,
+				posZ = posZ,
+				rotX = 0,
+				rotY = 0,
+				rotZ = 0,
+				scaleX = scaleX,
+				scaleY = 1,
+				scaleZ = scaleZ
+			},
+			Nickname="",
+			Description="",
+			GMNotes="",
+			LayoutGroupSortIndex=0,
+			Locked=true,
+			Autoraise=false,
+			Sticky=true,
+			Tooltip=true,
+			FogColor="Black",
+			FogHidePointers=false,
+			FogReserveHiding=false,
+			FogSeethrough=false,
+			FogAutoSpawned=true
+		}
+	})
+end

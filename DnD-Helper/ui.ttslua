@@ -32,7 +32,7 @@ function buttonDeck(children)
 end
 
 function fogButton()
-	return deckButton("Fog", "tempOnClick")
+	return deckButton("Spawn Fog", "spawnFog")
 end
 
 function deckButton(text, onClick)
@@ -49,8 +49,4 @@ function deckButton(text, onClick)
 			onClick=onClick
 		}
 	}
-end
-
-function tempOnClick(player)
-	printf("I'm a button! I was clicked by %s, who is color %s", player.steam_name, player.color)
 end
