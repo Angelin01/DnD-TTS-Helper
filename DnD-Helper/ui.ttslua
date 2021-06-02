@@ -17,7 +17,7 @@ function buttonDeck(children)
 			rectAlignment="LowerRight",
 			offsetXY="-85 10",
 
-			visibility="Black|Host",
+			visibility="Black|Admin",
 			height=60,
 			width=width,
 			color="rgba(0,0,0,0.7)",
