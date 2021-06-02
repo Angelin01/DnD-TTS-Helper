@@ -11,14 +11,6 @@ function onLoad()
 
 	setupUI()
 
-	debug()
-
 	local endTime = os.time()
 	logf("Loading complete! Enjoy. (%.0f ms)", (endTime - startTime) * 1000)
-end
-
-function debug()
-	local objData = getObjectFromGUID("524af8").getData()
-	log(objData)
-	return objData
 end
